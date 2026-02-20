@@ -1,6 +1,9 @@
-namespace EvolutionaryArchitecture.Fitnet.Passes.Data.Database;
+namespace EvolutionaryArchitecture.Fitnet.Passes.Infrastructure.Data.Database;
 
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 internal static class DatabaseModule

@@ -1,4 +1,7 @@
-namespace EvolutionaryArchitecture.Fitnet.Passes.Data.Database;
+namespace EvolutionaryArchitecture.Fitnet.Passes.Infrastructure.Data.Database;
+
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 internal static class AutomaticMigrationsExtensions
 {

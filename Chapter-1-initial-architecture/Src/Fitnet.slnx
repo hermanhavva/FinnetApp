@@ -1,4 +1,10 @@
 ﻿<Solution>
+  <Folder Name="/Fitnet.Passes/">
+    <Project Path="Fitnet.Passes.Application\Fitnet.Passes.Application.csproj" Type="Classic C#" />
+    <Project Path="Fitnet.Passes.Domain\Fitnet.Passes.Domain.csproj" Type="Classic C#" />
+    <Project Path="Fitnet.Passes.Infrastructure\Fitnet.Passes.Infrastructure.csproj" Type="Classic C#" />
+    <Project Path="Fitnet.Passes.Presentation\Fitnet.Passes.Presentation.csproj" Type="Classic C#" />
+  </Folder>
   <Project Path="Fitnet.AppHost/Fitnet.AppHost.csproj" />
   <Project Path="Fitnet.ArchitectureTests\Fitnet.ArchitectureTests.csproj" Type="C#" />
   <Project Path="Fitnet.IntegrationTests\Fitnet.IntegrationTests.csproj" Type="C#" />

@@ -1,6 +1,6 @@
-namespace EvolutionaryArchitecture.Fitnet.Passes.Data;
+namespace EvolutionaryArchitecture.Fitnet.Passes.Domain;
 
-internal sealed class Pass
+public sealed class Pass
 {
     public Guid Id { get; init; }
     public Guid CustomerId { get; init; }
