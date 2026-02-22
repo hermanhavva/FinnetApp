@@ -1,3 +1,4 @@
+using System.Reflection;
 using EvolutionaryArchitecture.Fitnet.Common.Clock;
 using EvolutionaryArchitecture.Fitnet.Common.Documentation;
 using EvolutionaryArchitecture.Fitnet.Common.ErrorHandling;
@@ -15,7 +16,7 @@ builder.Services.AddExceptionHandling();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEventBus();
-builder.Services.AddRequestsValidations();
+builder.Services.AddRequestsValidations(Assembly.GetExecutingAssembly());
 builder.Services.AddClock();
 
 builder.Services.AddPasses(builder.Configuration);

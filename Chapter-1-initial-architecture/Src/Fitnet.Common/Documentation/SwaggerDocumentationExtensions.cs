@@ -1,5 +1,9 @@
 ﻿namespace EvolutionaryArchitecture.Fitnet.Common.Documentation;
 
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+
 internal static class ApiDocumentationExtensions
 {
     internal static void UseApiDocumentation(this IEndpointRouteBuilder app) =>

@@ -2,6 +2,8 @@ namespace EvolutionaryArchitecture.Fitnet.Common.Validation.Requests;
 
 using System.Net;
 using FluentValidation;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 
 internal sealed class RequestValidationApiFilter<TRequestToValidate> : IEndpointFilter where TRequestToValidate : class
 {

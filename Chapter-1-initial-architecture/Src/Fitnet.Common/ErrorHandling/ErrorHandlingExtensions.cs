@@ -1,5 +1,8 @@
 namespace EvolutionaryArchitecture.Fitnet.Common.ErrorHandling;
 
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+
 internal static class ErrorHandlingExtensions
 {
     internal static IApplicationBuilder UseErrorHandling(this IApplicationBuilder applicationBuilder)
