@@ -1,8 +1,8 @@
-namespace EvolutionaryArchitecture.Fitnet.Passes.GetAllPasses;
+namespace EvolutionaryArchitecture.Fitnet.Passes.Presentation.GetAllPasses;
 
-using Passes;
-using Data.Database;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 
 internal static class GetAllPassesEndpoint
 {

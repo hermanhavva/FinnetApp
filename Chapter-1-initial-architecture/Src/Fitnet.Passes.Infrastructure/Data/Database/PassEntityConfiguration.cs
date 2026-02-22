@@ -1,6 +1,7 @@
 namespace EvolutionaryArchitecture.Fitnet.Passes.Infrastructure.Data.Database;
 
 using Domain;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -33,5 +33,9 @@
         <Link>Contracts.http</Link>
       </Content>
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Passes\MarkPassAsExpired\Events\" />
+    </ItemGroup>
   
 </Project>

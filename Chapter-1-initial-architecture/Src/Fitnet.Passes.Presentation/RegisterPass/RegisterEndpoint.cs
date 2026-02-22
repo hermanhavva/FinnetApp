@@ -1,11 +1,6 @@
-namespace EvolutionaryArchitecture.Fitnet.Passes.RegisterPass;
+namespace EvolutionaryArchitecture.Fitnet.Passes.Presentation.RegisterPass;
 
-using Contracts.SignContract.Events;
-using Data;
-using Data.Database;
-using Events;
-using EvolutionaryArchitecture.Fitnet.Common.Events;
-using EvolutionaryArchitecture.Fitnet.Common.Events.EventBus;
+using EvolutionaryArchitecture.Fitnet.Passes.Domain.Entities;
 
 internal sealed class ContractSignedEventHandler(
     PassesPersistence persistence,
