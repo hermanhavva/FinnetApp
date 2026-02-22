@@ -9,6 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EvolutionaryArchitecture.Fitnet.Migrations;
 
+using System.Diagnostics.CodeAnalysis;
 using Passes.Infrastructure.Data.Database;
 
 [DbContext(typeof(PassesPersistence))]

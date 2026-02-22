@@ -22,10 +22,10 @@ internal static class DatabaseModule
         return services;
     }
 
-    internal static IApplicationBuilder UseDatabase(this IApplicationBuilder applicationBuilder)
+    internal static IServiceCollection AddMigrations(this IServiceCollection services)
     {
-        applicationBuilder.UseAutomaticMigrations();
+        services.AddHostedService<AutomaticMigrationsService>();
 
-        return applicationBuilder;
+        return services;
     }
 }
