@@ -10,10 +10,10 @@ internal static class GetAllPassesEndpoint
 {
     internal static void MapGetAllPasses(this IEndpointRouteBuilder app) =>
         app.MapGet(PassesApiPaths.GetAll, async (
-                IGetAllPassesUseCase useCase,
+                IGetAllPassesCommandUseCase commandUseCase,
                 CancellationToken cancellationToken) =>
             {
-                var response = await useCase.ExecuteAsync(cancellationToken);
+                var response = await commandUseCase.ExecuteAsync(cancellationToken);
 
                 return Results.Ok(response);
             })

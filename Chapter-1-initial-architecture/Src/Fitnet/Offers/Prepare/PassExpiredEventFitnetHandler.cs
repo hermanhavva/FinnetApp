@@ -6,10 +6,10 @@ using Passes.MarkPassAsExpired.Events;
 using Common.Events;
 using Common.Events.EventBus;
 
-internal sealed class PassExpiredEventHandler(
+internal sealed class PassExpiredEventFitnetHandler(
     IEventBus eventBus,
     OffersPersistence persistence,
-    TimeProvider timeProvider) : IIntegrationEventHandler<PassExpiredEvent>
+    TimeProvider timeProvider) : IIntegrationEventFitnetHandler<PassExpiredEvent>
 {
     public async Task Handle(PassExpiredEvent @event, CancellationToken cancellationToken)
     {

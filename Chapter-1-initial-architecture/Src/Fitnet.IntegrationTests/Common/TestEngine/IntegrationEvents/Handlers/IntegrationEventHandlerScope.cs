@@ -3,22 +3,22 @@ namespace EvolutionaryArchitecture.Fitnet.IntegrationTests.Common.TestEngine.Int
 using EvolutionaryArchitecture.Fitnet.Common.Events;
 using MediatR;
 
-internal sealed class IntegrationEventHandlerScope<TIntegrationEvent> : IDisposable
+public sealed class IntegrationEventHandlerScope<TIntegrationEvent> : IDisposable
 where TIntegrationEvent : IIntegrationEvent
 {
     private readonly IServiceScope _serviceScope;
-    internal readonly IIntegrationEventHandler<TIntegrationEvent> IntegrationEventHandler;
+    internal readonly IIntegrationEventFitnetHandler<TIntegrationEvent> IntegrationEventFitnetHandler;
 
     public IntegrationEventHandlerScope(WebApplicationFactory<Program> applicationInMemoryFactory)
     {
         _serviceScope = applicationInMemoryFactory.Services.CreateScope();
-        IntegrationEventHandler = (IIntegrationEventHandler<TIntegrationEvent>)_serviceScope
+        IntegrationEventFitnetHandler = (IIntegrationEventFitnetHandler<TIntegrationEvent>)_serviceScope
             .ServiceProvider
             .GetRequiredService<INotificationHandler<TIntegrationEvent>>();
     }
 
     public async Task Consume(TIntegrationEvent @event, CancellationToken cancellationToken = default) =>
-        await IntegrationEventHandler.Handle(@event, cancellationToken);
+        await IntegrationEventFitnetHandler.Handle(@event, cancellationToken);
 
     public void Dispose() =>
         _serviceScope.Dispose();

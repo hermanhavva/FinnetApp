@@ -1,3 +1,3 @@
 namespace EvolutionaryArchitecture.Fitnet.Passes.Application.DTOs;
 
-public record RegisterPassRequest(Guid CustomerId, DateTimeOffset From, DateTimeOffset To);
+public sealed record RegisterPassRequest(Guid CustomerId, DateTimeOffset SignedAt, DateTimeOffset ExpireAt);

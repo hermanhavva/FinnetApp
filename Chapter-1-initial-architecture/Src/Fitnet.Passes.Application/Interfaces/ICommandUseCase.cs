@@ -3,12 +3,12 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-public interface IUseCase<in TRequest, TResponse>
+public interface ICommandUseCase<in TRequest, TResponse>
 {
     Task<TResponse> ExecuteAsync(TRequest request, CancellationToken cancellationToken = default);
 }
 
-public interface IUseCase<TResponse>
+public interface ICommandUseCase<in TRequest>
 {
-    Task<TResponse> ExecuteAsync(CancellationToken cancellationToken = default);
+    Task ExecuteAsync(TRequest request, CancellationToken cancellationToken = default);
 }

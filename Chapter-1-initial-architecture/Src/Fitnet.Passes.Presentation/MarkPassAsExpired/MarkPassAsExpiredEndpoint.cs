@@ -1,5 +1,6 @@
 namespace EvolutionaryArchitecture.Fitnet.Passes.Presentation.MarkPassAsExpired;
 
+using Application.Interfaces;
 using EvolutionaryArchitecture.Fitnet.Passes.Presentation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -11,25 +12,12 @@ internal static class MarkPassAsExpiredEndpoint
             PassesApiPaths.MarkPassAsExpired,
             async (
                 Guid id,
-                PassesPersistence persistence,
-                TimeProvider timeProvider,
-                IEventBus eventBus,
+                IMarkPassAsExpiredCommandUseCase commandUseCase,
                 CancellationToken cancellationToken) =>
             {
-                var pass = await persistence.Passes.FindAsync([id], cancellationToken: cancellationToken);
-                if (pass is null)
-                {
-                    return Results.NotFound();
-                }
+                var wasFoundAndMarked = await commandUseCase.ExecuteAsync(id, cancellationToken);
 
-                var nowDate = timeProvider.GetUtcNow();
-                pass.MarkAsExpired(nowDate);
-                await persistence.SaveChangesAsync(cancellationToken);
-                await eventBus.PublishAsync(
-                    PassExpiredEvent.Create(pass.Id, pass.CustomerId, timeProvider.GetUtcNow()),
-                    cancellationToken);
-
-                return Results.NoContent();
+                return wasFoundAndMarked ? Results.NoContent() : Results.NotFound();
             })
         .WithSummary("Marks pass which expired")
         .WithDescription("This endpoint is used to mark expired pass. Based on that it is possible to offer new contract to customer.")

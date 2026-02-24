@@ -7,6 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Fitnet.Common\Fitnet.Common.csproj" />
+      <ProjectReference Include="..\Fitnet.Passes.Contracts\Fitnet.Passes.Contracts.csproj" />
       <ProjectReference Include="..\Fitnet.Passes.Domain\Fitnet.Passes.Domain.csproj" />
     </ItemGroup>
 

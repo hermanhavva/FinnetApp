@@ -28,7 +28,7 @@ public sealed class PrepareOfferTests : IClassFixture<WebApplicationFactory<Prog
         // Arrange
         using var integrationEventHandlerScope =
             new IntegrationEventHandlerScope<PassExpiredEvent>(_applicationInMemory);
-        var integrationEventHandler = integrationEventHandlerScope.IntegrationEventHandler;
+        var integrationEventHandler = integrationEventHandlerScope.IntegrationEventFitnetHandler;
         var @event = PassExpiredEventFaker.CreateValid();
 
         // Act

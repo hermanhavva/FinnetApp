@@ -61,7 +61,7 @@ public sealed class GenerateNewPassesPerMonthReportTests : IClassFixture<WebAppl
     {
         using var integrationEventHandlerScope =
             new IntegrationEventHandlerScope<ContractSignedEvent>(_applicationInMemoryFactory);
-        var integrationEventHandler = integrationEventHandlerScope.IntegrationEventHandler;
+        var integrationEventHandler = integrationEventHandlerScope.IntegrationEventFitnetHandler;
         var @event = ContractSignedEventFaker.Create(from, to);
         await integrationEventHandler.Handle(@event, CancellationToken.None);
     }

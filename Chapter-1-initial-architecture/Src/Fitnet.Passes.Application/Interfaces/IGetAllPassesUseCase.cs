@@ -2,6 +2,6 @@
 
 using DTOs;
 
-public interface IGetAllPassesUseCase : IUseCase<GetAllPassesResponse>
+public interface IGetAllPassesCommandUseCase : IQueryUseCase<GetAllPassesResponse>
 {
 }

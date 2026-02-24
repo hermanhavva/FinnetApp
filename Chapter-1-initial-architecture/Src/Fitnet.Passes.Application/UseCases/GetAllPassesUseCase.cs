@@ -3,7 +3,7 @@
 using DTOs;
 using Interfaces;
 
-internal sealed class GetAllPassesUseCase(IPassesRepository repo) : IGetAllPassesUseCase
+internal sealed class GetAllPassesCommandUseCase(IPassesRepository repo) : IGetAllPassesCommandUseCase
 {
     public async Task<GetAllPassesResponse> ExecuteAsync(CancellationToken cancellationToken = default)
     {

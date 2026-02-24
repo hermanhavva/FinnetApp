@@ -1,18 +1,22 @@
 namespace EvolutionaryArchitecture.Fitnet.Passes.Presentation.RegisterPass;
 
-using EvolutionaryArchitecture.Fitnet.Passes.Domain.Entities;
+using Application.DTOs;
+using Common.Events;
+using EvolutionaryArchitecture.Fitnet.Passes.Application.Interfaces;
+using Fitnet.Contracts.SignContract.Events;
 
-internal sealed class ContractSignedEventHandler(
-    PassesPersistence persistence,
-    IEventBus eventBus) : IIntegrationEventHandler<ContractSignedEvent>
+public sealed class ContractSignedEventFitnetHandler(
+    IRegisterPassUseCase useCase) : IIntegrationEventFitnetHandler<ContractSignedEvent>
 {
     public async Task Handle(ContractSignedEvent @event, CancellationToken cancellationToken)
     {
-        var pass = Pass.Register(@event.ContractCustomerId, @event.SignedAt, @event.ExpireAt);
-        await persistence.Passes.AddAsync(pass, cancellationToken);
-        await persistence.SaveChangesAsync(cancellationToken);
+        // 1. Map the external event payload to the internal Use Case request
+        var request = new RegisterPassRequest(
+            @event.ContractCustomerId,
+            @event.SignedAt,
+            @event.ExpireAt);
 
-        var passRegisteredEvent = PassRegisteredEvent.Create(pass.Id);
-        await eventBus.PublishAsync(passRegisteredEvent, cancellationToken);
+        // 2. Delegate to the Application layer
+        await useCase.ExecuteAsync(request, cancellationToken);
     }
 }
