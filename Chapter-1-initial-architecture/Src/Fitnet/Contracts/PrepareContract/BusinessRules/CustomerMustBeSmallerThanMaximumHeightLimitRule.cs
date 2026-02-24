@@ -12,5 +12,5 @@ internal sealed class CustomerMustBeSmallerThanMaximumHeightLimitRule : IBusines
 
     public bool IsMet() => _height <= MaximumHeight;
 
-    public string Error => "Customer height must fit maximum limit for gym instruments";
+    public string RuleError => "Customer height must fit maximum limit for gym instruments";
 }

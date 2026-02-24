@@ -1,7 +1,7 @@
 namespace EvolutionaryArchitecture.Fitnet.Common.BusinessRulesEngine;
 
-internal interface IBusinessRule
+public interface IBusinessRule
 {
     bool IsMet();
-    string Error { get; }
+    string RuleError { get; }
 }

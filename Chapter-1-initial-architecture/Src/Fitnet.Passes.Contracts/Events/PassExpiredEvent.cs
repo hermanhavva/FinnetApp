@@ -1,5 +1,7 @@
 namespace EvolutionaryArchitecture.Fitnet.Passes.Contracts.Events;
 
+using Common.Events;
+
 internal record PassExpiredEvent(Guid Id, Guid PassId, Guid CustomerId, DateTimeOffset OccurredDateTime) : IIntegrationEvent
 {
     internal static PassExpiredEvent Create(Guid passId, Guid customerId, DateTimeOffset occurredAt) =>

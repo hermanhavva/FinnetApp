@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Fitnet.Common\Fitnet.Common.csproj" />
+    </ItemGroup>
+
 </Project>

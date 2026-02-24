@@ -14,6 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Fitnet.Passes.Application\Fitnet.Passes.Application.csproj" />
       <ProjectReference Include="..\Fitnet.Passes.Domain\Fitnet.Passes.Domain.csproj" />
     </ItemGroup>
 

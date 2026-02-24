@@ -1,6 +1,6 @@
 namespace EvolutionaryArchitecture.Fitnet.Passes.Infrastructure.Data.Database;
 
-using Microsoft.AspNetCore.Builder;
+using Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +18,7 @@ internal static class DatabaseModule
             var connectionString = persistenceOptions.Value.Passes;
             options.UseNpgsql(connectionString);
         });
+        services.AddScoped<IPassesRepository, PassesRepository>();
 
         return services;
     }

@@ -1,5 +1,7 @@
 namespace EvolutionaryArchitecture.Fitnet.Passes.Presentation.GetAllPasses;
 
+using Application.DTOs;
+using Application.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
@@ -7,13 +9,11 @@ using Microsoft.AspNetCore.Routing;
 internal static class GetAllPassesEndpoint
 {
     internal static void MapGetAllPasses(this IEndpointRouteBuilder app) =>
-        app.MapGet(PassesApiPaths.GetAll, async (PassesPersistence persistence, CancellationToken cancellationToken) =>
+        app.MapGet(PassesApiPaths.GetAll, async (
+                IGetAllPassesUseCase useCase,
+                CancellationToken cancellationToken) =>
             {
-                var passes = await persistence.Passes
-                    .AsNoTracking()
-                    .Select(passes => PassDto.From(passes))
-                    .ToListAsync(cancellationToken);
-                var response = GetAllPassesResponse.Create(passes);
+                var response = await useCase.ExecuteAsync(cancellationToken);
 
                 return Results.Ok(response);
             })

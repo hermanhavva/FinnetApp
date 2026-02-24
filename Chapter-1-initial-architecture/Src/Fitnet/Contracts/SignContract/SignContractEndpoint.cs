@@ -3,11 +3,10 @@ namespace EvolutionaryArchitecture.Fitnet.Contracts.SignContract;
 using Data.Database;
 using Events;
 using EvolutionaryArchitecture.Fitnet.Common.Events.EventBus;
-using Common.Validation.Requests;
 
-internal static class SignContractEndpoint
+public static class SignContractEndpoint
 {
-    internal static void MapSignContract(this IEndpointRouteBuilder app) => app.MapPatch(ContractsApiPaths.Sign,
+    public static void MapSignContract(this IEndpointRouteBuilder app) => app.MapPatch(ContractsApiPaths.Sign,
             async (Guid id, SignContractRequest request,
                 ContractsPersistence persistence,
                 IEventBus bus,
