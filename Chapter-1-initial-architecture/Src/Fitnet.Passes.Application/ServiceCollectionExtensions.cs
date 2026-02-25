@@ -6,7 +6,7 @@ using UseCases;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddPassesInfrastructureLayer(this IServiceCollection services)
+    public static IServiceCollection AddPassesApplicationLayer(this IServiceCollection services)
     {
         services.AddScoped<IMarkPassAsExpiredCommandUseCase, MarkPassAsExpiredCommandUseCase>();
         services.AddScoped<IGetAllPassesCommandUseCase, GetAllPassesCommandUseCase>();

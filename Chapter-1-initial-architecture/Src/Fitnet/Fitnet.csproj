@@ -6,15 +6,15 @@
     
     <ItemGroup>
         <PackageReference Include="Dapper" Version="2.1.66" />
-        <PackageReference Include="FluentValidation" Version="12.0.0" />
+        <PackageReference Include="FluentValidation" Version="12.1.1" />
         <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
         <PackageReference Include="JetBrains.Annotations" Version="2025.2.2" />
-        <PackageReference Include="MediatR" Version="12.5.0" />
+        <PackageReference Include="MediatR" Version="14.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.1" />
-        <PackageReference Include="Microsoft.OpenApi" Version="2.3.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.3" />
+        <PackageReference Include="Microsoft.OpenApi" Version="2.4.1" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.4" />
         <PackageReference Update="SonarAnalyzer.CSharp" Version="10.15.0.120848" />
     </ItemGroup>
 
@@ -42,6 +42,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Fitnet.Common\Fitnet.Common.csproj" />
       <ProjectReference Include="..\Fitnet.Passes.Contracts\Fitnet.Passes.Contracts.csproj" />
+      <ProjectReference Include="..\Fitnet.Passes.Presentation\Fitnet.Passes.Presentation.csproj" />
     </ItemGroup>
   
 </Project>

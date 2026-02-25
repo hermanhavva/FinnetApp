@@ -6,6 +6,7 @@ using EvolutionaryArchitecture.Fitnet.Common.Events.EventBus;
 using EvolutionaryArchitecture.Fitnet.Common.Validation.Requests;
 using EvolutionaryArchitecture.Fitnet.Contracts;
 using EvolutionaryArchitecture.Fitnet.Offers;
+using EvolutionaryArchitecture.Fitnet.Passes.Presentation;
 using EvolutionaryArchitecture.Fitnet.Reports;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Services.AddEventBus();
 builder.Services.AddRequestsValidations(Assembly.GetExecutingAssembly());
 builder.Services.AddClock();
 
+builder.Services.AddPassesModule(builder.Configuration);
 builder.Services.AddContracts(builder.Configuration);
 builder.Services.AddOffers(builder.Configuration);
 builder.Services.AddReports(builder.Configuration);
@@ -31,6 +33,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseApiDocumentation();
+app.MapPassesModule();
 app.UseContracts();
 app.UseReports();
 app.UseOffers();

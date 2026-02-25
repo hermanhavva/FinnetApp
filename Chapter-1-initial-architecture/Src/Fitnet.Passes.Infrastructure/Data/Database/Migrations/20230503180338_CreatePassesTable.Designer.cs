@@ -10,6 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EvolutionaryArchitecture.Fitnet.Migrations
 {
+    using Passes.Infrastructure.Data.Database;
+
     [DbContext(typeof(PassesPersistence))]
     [Migration("20230321064710_Create_Passes_Tables")]
     partial class CreatePassesTable

@@ -25,6 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Fitnet.Passes.Presentation\Fitnet.Passes.Presentation.csproj" />
       <ProjectReference Include="..\Fitnet\Fitnet.csproj" />
     </ItemGroup>
 

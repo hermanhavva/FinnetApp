@@ -5,7 +5,9 @@ using Common.TestEngine.Configuration;
 using Common.TestEngine.IntegrationEvents.Handlers;
 using EvolutionaryArchitecture.Fitnet.Common.Events.EventBus;
 using Fitnet.Contracts.SignContract.Events;
+using Fitnet.Passes.Application.DTOs;
 using Fitnet.Passes.Contracts.Events;
+using Fitnet.Passes.Presentation;
 
 public sealed class MarkPassAsExpiredTests : IClassFixture<WebApplicationFactory<Program>>,
     IClassFixture<DatabaseContainer>, IAsyncLifetime
