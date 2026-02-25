@@ -8,5 +8,5 @@ internal sealed class PreviousContractHasToBeSignedRule : IBusinessRule
 
     internal PreviousContractHasToBeSignedRule(bool? signed) => _signed = signed;
     public bool IsMet() => _signed is true or null;
-    public string Error => "Previous contract must be signed by the customer";
+    public string RuleError => "Previous contract must be signed by the customer";
 }

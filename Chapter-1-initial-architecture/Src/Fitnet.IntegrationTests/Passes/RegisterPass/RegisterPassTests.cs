@@ -3,8 +3,8 @@ namespace EvolutionaryArchitecture.Fitnet.IntegrationTests.Passes.RegisterPass;
 using Common.TestEngine.Configuration;
 using Common.TestEngine.IntegrationEvents.Handlers;
 using Fitnet.Contracts.SignContract.Events;
-using Fitnet.Passes.RegisterPass.Events;
 using EvolutionaryArchitecture.Fitnet.Common.Events.EventBus;
+using Fitnet.Passes.Contracts.Events;
 
 public sealed class RegisterPassTests : IClassFixture<WebApplicationFactory<Program>>, IClassFixture<DatabaseContainer>, IAsyncLifetime
 {
