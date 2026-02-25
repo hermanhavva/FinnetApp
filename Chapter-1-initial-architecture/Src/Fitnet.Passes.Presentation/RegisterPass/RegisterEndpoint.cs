@@ -3,7 +3,6 @@ namespace EvolutionaryArchitecture.Fitnet.Passes.Presentation.RegisterPass;
 using Application.DTOs;
 using Common.Events;
 using EvolutionaryArchitecture.Fitnet.Passes.Application.Interfaces;
-using Fitnet.Contracts.SignContract.Events;
 
 public sealed class ContractSignedEventFitnetHandler(
     IRegisterPassUseCase useCase) : IIntegrationEventFitnetHandler<ContractSignedEvent>

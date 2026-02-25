@@ -2,9 +2,9 @@ namespace EvolutionaryArchitecture.Fitnet.Offers.Prepare;
 
 using Data;
 using Data.Database;
-using Passes.MarkPassAsExpired.Events;
 using Common.Events;
 using Common.Events.EventBus;
+using Passes.Contracts.Events;
 
 internal sealed class PassExpiredEventFitnetHandler(
     IEventBus eventBus,

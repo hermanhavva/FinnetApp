@@ -2,8 +2,8 @@
 
 using Microsoft.Extensions.DependencyInjection;
 
-internal static class ClockModule
+public static class ClockModule
 {
-    internal static IServiceCollection AddClock(this IServiceCollection services) =>
+    public static IServiceCollection AddClock(this IServiceCollection services) =>
         services.AddSingleton(TimeProvider.System);
 }

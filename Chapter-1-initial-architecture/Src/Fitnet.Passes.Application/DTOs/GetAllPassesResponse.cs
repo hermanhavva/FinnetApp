@@ -9,5 +9,5 @@ public record GetAllPassesResponse(IReadOnlyCollection<PassDto> Passes)
 
 public record PassDto(Guid Id, Guid CustomerId)
 {
-    internal static PassDto From(Pass contract) => new(contract.Id, contract.CustomerId);
+    public static PassDto From(Pass contract) => new(contract.Id, contract.CustomerId);
 }

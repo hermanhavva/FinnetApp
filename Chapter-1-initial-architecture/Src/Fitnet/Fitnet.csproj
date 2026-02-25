@@ -7,7 +7,7 @@
     <ItemGroup>
         <PackageReference Include="Dapper" Version="2.1.66" />
         <PackageReference Include="FluentValidation" Version="12.0.0" />
-        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
         <PackageReference Include="JetBrains.Annotations" Version="2025.2.2" />
         <PackageReference Include="MediatR" Version="12.5.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
@@ -41,6 +41,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Fitnet.Common\Fitnet.Common.csproj" />
+      <ProjectReference Include="..\Fitnet.Passes.Contracts\Fitnet.Passes.Contracts.csproj" />
     </ItemGroup>
   
 </Project>

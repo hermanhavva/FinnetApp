@@ -3,8 +3,8 @@ namespace EvolutionaryArchitecture.Fitnet.Common.Validation.Requests;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
-internal static class EndpointBuilderExtensions
+public static class EndpointBuilderExtensions
 {
-    internal static RouteHandlerBuilder ValidateRequest<TRequest>(this RouteHandlerBuilder builder) where TRequest : class =>
+    public static RouteHandlerBuilder ValidateRequest<TRequest>(this RouteHandlerBuilder builder) where TRequest : class =>
         builder.AddEndpointFilter<RequestValidationApiFilter<TRequest>>();
 }

@@ -1,5 +1,7 @@
 namespace EvolutionaryArchitecture.Fitnet.Contracts;
 
+using Passes.Contracts;
+
 internal static class ContractsApiPaths
 {
     private const string ContractsRootApi = $"{ApiPaths.Root}/contracts";

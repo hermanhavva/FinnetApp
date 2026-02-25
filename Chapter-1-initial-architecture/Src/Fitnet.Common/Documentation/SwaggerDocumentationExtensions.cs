@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 
-internal static class ApiDocumentationExtensions
+public static class ApiDocumentationExtensions
 {
-    internal static void UseApiDocumentation(this IEndpointRouteBuilder app) =>
+    public static void UseApiDocumentation(this IEndpointRouteBuilder app) =>
         app.MapGet("/", () => Results.Redirect("/swagger"))
             .WithSummary("Documentation for the API")
             .WithDescription("This endpoint is used to redirect to the documentation for the API.")

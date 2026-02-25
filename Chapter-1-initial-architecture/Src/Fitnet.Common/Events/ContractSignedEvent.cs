@@ -1,6 +1,4 @@
-namespace EvolutionaryArchitecture.Fitnet.Contracts.SignContract.Events;
-
-using EvolutionaryArchitecture.Fitnet.Common.Events;
+namespace EvolutionaryArchitecture.Fitnet.Common.Events;
 
 public record ContractSignedEvent(
     Guid Id,
