@@ -1,0 +1,31 @@
+= Microservice Extraction Strategy: Passes
+:toc:
+:sectnums:
+
+
+== Overview
+Because the `Passes` module has been built using Clean Architecture within a Modular Monolith, extracting it into a standalone physical microservice requires zero changes to the `Domain` or `Application` layers. The extraction purely involves network and infrastructure boundaries.
+
+== What would be the API of this module?
+The microservice will expose two types of APIs (Synchronous and Asynchronous):
+
+=== Synchronous API (HTTP/REST)
+Exposed via Minimal APIs (Presentation Layer) for UI clients or API Gateways:
+* `GET /api/passes` - Retrieves a list of all passes (`GetAllPassesUseCase`).
+* `PATCH /api/passes/{id}/mark-as-expired` - Marks a specific pass as expired (`MarkPassAsExpiredUseCase`).
+
+=== Asynchronous API (Message Broker)
+Exposed via Integration Event Handlers listening to the cross-service Service Bus (e.g., RabbitMQ, Azure Service Bus, Kafka):
+* **Consumes:** `ContractSignedEvent` (Triggers `RegisterPassUseCase`).
+
+== What data would it own?
+The microservice will own a completely physically isolated database (e.g., a standalone PostgreSQL instance or a dedicated logical database within a cluster).
+* It owns the `PassesPersistence` DbContext.
+
+== How would other modules talk to it?
+Strictly via the `Contracts` project pattern for loose coupling.
+
+* **Event-Driven (Preferred):** Other microservices will listen to the Events published by the Passes microservice.
+** Examples: `PassRegisteredEvent`, `PassExpiredIntegrationEvent`.
+** The `Offers` microservice might listen to `PassExpiredIntegrationEvent` to email the customer a discount code.
+* **Synchronous (When strictly necessary):** If another microservice needs to display a user's passes, it will make a standard HTTP `GET` request to the Passes API endpoint.
