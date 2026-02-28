@@ -3,9 +3,8 @@ namespace EvolutionaryArchitecture.Fitnet.IntegrationTests.Offers.Prepare;
 using Common.TestEngine.Configuration;
 using Common.TestEngine.IntegrationEvents.Handlers;
 using Fitnet.Offers.Prepare;
-using Fitnet.Passes.MarkPassAsExpired.Events;
 using EvolutionaryArchitecture.Fitnet.Common.Events.EventBus;
-
+using Fitnet.Passes.Contracts.Events;
 
 public sealed class PrepareOfferTests : IClassFixture<WebApplicationFactory<Program>>,
     IClassFixture<DatabaseContainer>
@@ -28,7 +27,7 @@ public sealed class PrepareOfferTests : IClassFixture<WebApplicationFactory<Prog
         // Arrange
         using var integrationEventHandlerScope =
             new IntegrationEventHandlerScope<PassExpiredEvent>(_applicationInMemory);
-        var integrationEventHandler = integrationEventHandlerScope.IntegrationEventHandler;
+        var integrationEventHandler = integrationEventHandlerScope.IntegrationEventFitnetHandler;
         var @event = PassExpiredEventFaker.CreateValid();
 
         // Act

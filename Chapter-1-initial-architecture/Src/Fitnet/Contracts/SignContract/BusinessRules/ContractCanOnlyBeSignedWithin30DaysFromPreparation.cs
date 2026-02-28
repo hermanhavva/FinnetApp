@@ -21,6 +21,6 @@ internal sealed class ContractCanOnlyBeSignedWithin30DaysFromPreparation : IBusi
         return timeDifference <= TimeSpan.FromDays(30);
     }
 
-    public string Error =>
+    public string RuleError =>
         "Contract can not be signed because more than 30 days have passed from the contract preparation";
 }

@@ -1,0 +1,27 @@
+= Bounded Context: Passes Module
+:toc:
+:sectnums:
+
+
+== Module Name
+**Passes** (Fitnet.Passes)
+
+== What the module is responsible for
+The Passes module governs the lifecycle of a customer's gym access. Its core responsibilities include:
+* **Registration:** Automatically generating a new physical or digital access pass when a customer finalizes a contract.
+* **Expiration Management:** Tracking the validity period of a pass and marking it as expired when the time expires.
+* **Access querying:** Providing the system with a list of all current passes.
+* **Domain Event generation:** Firing internal events (`PassExpiredEvent`)
+
+== What it is not responsible for
+To maintain strict boundaries, this module explicitly ignores:
+* **Contract Negotiation & Signing:** It does not know how a contract is formed, what the pricing is, or how it is signed. It only reacts once a contract *is* signed (handled by the `Contracts` module).
+* **Customer Profile Management:** It does not store customer names, emails, or personal details. It only holds a reference (`CustomerId`).
+
+== What data belongs to this module
+The module has exclusive ownership over the `Passes` database schema. No other module is permitted to read or write to these tables.
+* `Pass` Entity:
+** `Id` (Guid, Primary Key)
+** `CustomerId` (Guid, Foreign Key/External Reference)
+** `To` (DateTimeOffset)
+** `From` (DateTimeOffset)

@@ -2,7 +2,7 @@ namespace EvolutionaryArchitecture.Fitnet.IntegrationTests.Passes.RegisterPass;
 
 using Fitnet.Contracts.SignContract.Events;
 
-internal sealed class ContractSignedEventFaker : Faker<ContractSignedEvent>
+public sealed class ContractSignedEventFaker : Faker<ContractSignedEvent>
 {
     private ContractSignedEventFaker(DateTimeOffset? validityFrom, DateTimeOffset? validityTo) => CustomInstantiator(
         faker =>
@@ -16,6 +16,6 @@ internal sealed class ContractSignedEventFaker : Faker<ContractSignedEvent>
             )
     );
 
-    internal static ContractSignedEvent Create(DateTimeOffset? signedAt = null, DateTimeOffset? expiringAt = null) =>
+    public static ContractSignedEvent Create(DateTimeOffset? signedAt = null, DateTimeOffset? expiringAt = null) =>
         new ContractSignedEventFaker(signedAt, expiringAt);
 }
